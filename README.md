@@ -2,3 +2,8 @@
 2.Gün: Webcam'den kamera açıldı, görüntü 3x3'lük gridlere ayrılıp mask işlemi yapıldı.
 3.Gün: Renkli nesne algılandı, merkez koordinatı ve satır-sütun değerleri yazıldı.
 4.Gün: addweighted ile nesnenin bulunduğu hücreye yarı saydam renk eklendi. Kodlar birleştirildi.
+
+Kurulum ve Çalıştırma:
+pip install opencv-pyhton
+pip install numpy
+pyhton main.py
