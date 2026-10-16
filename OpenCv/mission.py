@@ -7,16 +7,18 @@ def find_square(frame):
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     lower_black = np.array([0, 0, 0])
     upper_black = np.array([180, 255, 40])
-    mask_black = cv.inRange(hsv, lower_black, upper_black)    
+    mask_black = cv.inRange(hsv, lower_black, upper_black) 
+    contour_black,_ = cv.findContours(mask_black, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
     lower_green = np.array([35, 50, 50])
     upper_green = np.array([85, 255, 255])
     mask_green = cv.inRange(hsv, lower_green, upper_green)
-    mask = cv.bitwise_or(mask_black, mask_green)
-    contours, hierarchies = cv.findContours(mask, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
-    if not contours:
-        return []  
+    contour_green,_ = cv.findContours(mask_green, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
+
     bulunan_sekıller = []
-    for cnt in contours:
+    for cnt in contour_black: 
+        if cv.contourArea(cnt) > 500:
+            bulunan_sekıller.append(cnt)
+    for cnt in contour_green:
         if cv.contourArea(cnt) > 500:
             bulunan_sekıller.append(cnt)
     return bulunan_sekıller

@@ -6,7 +6,7 @@ webcam = cv.VideoCapture(0)
 while True:
     ret, frame = webcam.read()
     if not ret:
-        print("Görüntü Alınamadı")
+        print("Kare Aranıyor")
         break
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV) #BGR to HSV
     lower = np.array([100,150,50]) #sayılar HSV(hue, saturation, value)'nin değerleri mavinin alt ve üst sınırlarını veriyor.
@@ -27,9 +27,9 @@ while True:
             cv.circle(frame, (cX, cY), 5, (0, 0, 255), -1) # Kırmızı merkez noktası oluşturur, -1 dairenin içini doldurur
 
             #satır sutün tespiti ve yazdırması
-            yukseklık, genıslık = frame.shape[:2]
-            huce_yukseklık = yukseklık //3
-            hucre_genıslık = genıslık //3
+            h, w = frame.shape[:2]
+            huce_yukseklık = h //3
+            hucre_genıslık = w//3
             if cX < hucre_genıslık:
                     sutun = 1 
             elif cX <hucre_genıslık * 2:

@@ -27,8 +27,4 @@ cv.imshow('HSV to BGR', hsv_bgr)
 
 plt.imshow(rgb)
 plt.show()
-
-
-
-
 cv.waitKey(0)

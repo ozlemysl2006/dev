@@ -20,7 +20,7 @@ ret, thresh = cv.threshold(gray, 125, 255, cv.THRESH_BINARY) #tresh looks an ima
 contours, hierarchies = cv.findContours(thresh, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
 print(f'{len(contours)} contours found!')
 
-cv.drawContours(blank, contours, -1, (0,0,255), 1) # draws the contours on the black image
+cv.drawContours(blank, contours, -1, (0,0,255), ) # draws the contours on the black image
 cv.imshow('Contours Drawn', blank) # displays the image with the contours as a new
 
 
